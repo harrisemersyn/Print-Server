@@ -6,6 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import PrintRequestBW, PrintRequestColor, LoginForm
 
+# Get the config so configuration errors can be caught immediately on server start
+import config
+config.get_config()
+
 app = Flask(__name__ , template_folder="templates", static_folder="static")
 app.config['SECRET_KEY'] = "placeholder"
 db = SQLAlchemy(app)
