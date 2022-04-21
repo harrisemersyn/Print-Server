@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>Black and White Print Request</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+ 
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a class="active" href="/printselection">Print</a>
+        <a href="/logout">Log Out</a>
+    </div>
+    <h1>Log-In</h1>
+    <form method = "POST" action = "">
+        <div class="mb-3">{{ form.csrf_token() }}<label for="netid"> {{ form.netid.label }}</label></br>{{ form.netid }}</div>
+        <div class="mb-3">{{ form.csrf_token() }}<label for="password"> {{ form.password.label }}</label></br>{{ form.password }}</div>
+        <div class="form-group">{{form.submit(class="btn btn-primary")}}</div>
+    </form>
+</body>
+ 
+</html>

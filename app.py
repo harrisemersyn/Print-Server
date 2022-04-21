@@ -55,6 +55,16 @@ def login():
     return render_template("login.html", form = form)
 
 @login_required
+@app.route("/logout")
+def logout():
+    logout_user()
+    if session.get('was_once_logged_in'):
+        del session['was_once_logged_in']
+        flash("Logout Successful")
+
+    return redirect(url_for('login'))
+
+@login_required
 @app.route("/printselection")
 def printselection():
     return
