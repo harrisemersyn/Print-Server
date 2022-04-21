@@ -1,7 +1,9 @@
 from tokenize import Number
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, PasswordField, StringField, SubmitField, ValidationError, IntegerField, FileField
-from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange, FileAllowed
+from flask_wtf.file import FileField, FileAllowed, FileRequired
+from wtforms import BooleanField, PasswordField, StringField, SubmitField, ValidationError, IntegerField
+from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange
+
 
 def colorordbchecked(form, color, dbsided):
     if color.data != 0 and dbsided.data != 0:
@@ -10,15 +12,18 @@ def colorordbchecked(form, color, dbsided):
 #User login will go here
 
 #File, number of copies (max 5), color?, double sided?, landscape?, print all pages?
-class PrintRequest(FlaskForm):
-    #wtforms.widgets.FileInput
-    #parameter: multiple – allow choosing multiple files
-    file = FileField("File", validators=[FileAllowed(['doc','docx','gif','jpeg','jpeg','jpg','odf','odg','ods','odt','pdf','png','ppt','pptx','ps','rtf','svg','txt','xls','xlsx'])])
-    #Integer Field
+#Seperate forms for color and black and white, will pick color or black and white before going to main print form
+class PrintRequestBW(FlaskForm):
+    file = FileField("File", validators=[FileRequired(), FileAllowed(['doc','docx','gif','jpeg','jpeg','jpg','odf','odg','ods','odt','pdf','png','ppt','pptx','ps','rtf','svg','txt','xls','xlsx'], "Wrong Format")])
     copies = IntegerField("Number of Copies", validators=[NumberRange(min=1,max=5)])
-    #wtforms.widgets.CheckboxInput
-    color = BooleanField("Color")
-    dbsided = BooleanField("Double Sided", validators=[colorordbchecked()])
+    dbsided = BooleanField("Double Sided")
+    landscape = BooleanField("Landscape")
+    printall = BooleanField("Print All Pages")
+    print = SubmitField("Print")
+
+class PrintRequestColor(FlaskForm):
+    file = FileField("File", validators=[FileRequired(), FileAllowed(['doc','docx','gif','jpeg','jpeg','jpg','odf','odg','ods','odt','pdf','png','ppt','pptx','ps','rtf','svg','txt','xls','xlsx'], "Wrong Format")])
+    copies = IntegerField("Number of Copies", validators=[NumberRange(min=1,max=5)])
     landscape = BooleanField("Landscape")
     printall = BooleanField("Print All Pages")
     print = SubmitField("Print")
