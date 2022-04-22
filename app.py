@@ -5,6 +5,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import PrintRequestBW, PrintRequestColor, LoginForm
+import auth
 
 # Get the config so configuration errors can be caught immediately on server start
 import config
@@ -45,7 +46,10 @@ def login():
         netid = None
         password = None
         if form.validate_on_submit():
-            user = User.query.filterby(netid = netid)
+            #only using auth_test() for testing purposes, will be replaced with auth_citadel() later, which only runs on linux vvv
+            #user = auth.auth_citadel(form.netid.data, form.password.data)
+            user = auth.auth_test(form.netid.data, form.password.data)
+
             if user:
                 login_user(user)
                 return redirect(url_for('printselection'))

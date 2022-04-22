@@ -2,11 +2,11 @@ from tokenize import Number
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, ValidationError, IntegerField
-from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange
+from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange, AlphaNumeric
 
 #User login 
 class LoginForm(FlaskForm):
-    netid = StringField("NetID", validators=[DataRequired()])
+    netid = StringField("NetID", validators=[DataRequired(), AlphaNumeric()])
     password = PasswordField("Password", validators=[DataRequired()])
 
 #File, number of copies (max 5), color?, double sided?, landscape?, print all pages?
