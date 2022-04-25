@@ -92,7 +92,7 @@ def printbw():
     #here will be the print form that will send print information to the print server
     if form.validate_on_submit():
         conn = getdbconnection()
-        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);" (os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data)
+        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", ((os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
         conn.commit()
         conn.close()
     return
@@ -103,8 +103,7 @@ def printcolor():
     form = PrintRequestColor()
     if form.validate_on_submit():
         conn = getdbconnection()
-        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);" (os.path.basename((form.file.data).name)), "Color", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data)
-        conn.commit()
+        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", (os.path.basename((form.file.data).name)), "Color", (datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
         conn.close()
     #here will be the print form that will send print information to the print server
     return
