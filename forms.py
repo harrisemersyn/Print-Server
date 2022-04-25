@@ -2,7 +2,8 @@ from tokenize import Number
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms import BooleanField, PasswordField, StringField, SubmitField, ValidationError, IntegerField
-from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange, AlphaNumeric
+from wtforms.validators import EqualTo, DataRequired, Email, Length, NumberRange
+from wtforms_validators import AlphaNumeric
 
 #User login 
 class LoginForm(FlaskForm):

@@ -46,9 +46,9 @@ def login():
         netid = None
         password = None
         if form.validate_on_submit():
-            #only using auth_test() for testing purposes, will be replaced with auth_citadel() later, which only runs on linux vvv
+            #only using auth() for testing purposes, will be replaced with auth_citadel() later, which only runs on linux vvv
             #user = auth.auth_citadel(form.netid.data, form.password.data)
-            user = auth.auth_test(form.netid.data, form.password.data)
+            user = auth.auth(form.netid.data, form.password.data)
 
             if user:
                 login_user(user)
