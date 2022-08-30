@@ -40,6 +40,7 @@ def home():
 #login page will recieve authentication from citadel to authorize user to print to cif printers
 def login():
     form = LoginForm()
+    form.validate()
     if current_user.is_authenticated:
         return redirect(url_for('printselection'))
     else:
@@ -73,9 +74,9 @@ def logout():
     return redirect(url_for('login'))
 
 @login_required
-@app.route("/printselection")
+@app.route("/printerselection")
 def printselection():
-    return
+    return render_template("printerselection.html")
 
 @login_required
 @app.route("/printbw")

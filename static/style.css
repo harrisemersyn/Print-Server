@@ -37,3 +37,31 @@ body {
   background-color: #04AA6D;
   color: white;
 }
+
+.blockleft {
+  display: block;
+  width: 20%;
+  height: 20%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 28px 28px;
+  font-size: 28px;
+  cursor: pointer;
+  position:absolute;
+  top:30%;
+  left:20%;
+}
+
+.blockright {
+  display: block;
+  width: 20%;
+  height: 20%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 28px 28px;
+  font-size: 28px;
+  cursor: pointer;
+  position:absolute;
+  top:30%;
+  right:20%;
+}
