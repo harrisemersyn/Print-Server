@@ -5,7 +5,10 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, log
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import PrintRequestBW, PrintRequestColor, LoginForm
+from datetime import datetime
+import sqlite3
 import auth
+import os
 
 # Get the config so configuration errors can be caught immediately on server start
 import config
@@ -22,6 +25,11 @@ loginManager.login_view = 'login'
 @loginManager.user_loader
 def load_user(user_id):
 	return User.query.get(int(user_id))
+
+def getdbconnection():
+    conn = sqlite3.connect('printlogs.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 #Database is for testing purposes only
 class User(db.Model, UserMixin):
@@ -47,9 +55,9 @@ def login():
         netid = None
         password = None
         if form.validate_on_submit():
-            #only using auth_test() for testing purposes, will be replaced with auth_citadel() later, which only runs on linux vvv
+            #only using auth() for testing purposes, will be replaced with auth_citadel() later, which only runs on linux vvv
             #user = auth.auth_citadel(form.netid.data, form.password.data)
-            user = auth.auth_test(form.netid.data, form.password.data)
+            user = auth.auth(form.netid.data, form.password.data)
 
             if user:
                 login_user(user)
@@ -83,12 +91,21 @@ def printselection():
 def printbw():
     form = PrintRequestBW()
     #here will be the print form that will send print information to the print server
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", ((os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
+        conn.commit()
+        conn.close()
     return
 
 @login_required
 @app.route("/printcolor")
 def printcolor():
     form = PrintRequestColor()
+    if form.validate_on_submit():
+        conn = getdbconnection()
+        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", (os.path.basename((form.file.data).name)), "Color", (datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
+        conn.close()
     #here will be the print form that will send print information to the print server
     return
 
