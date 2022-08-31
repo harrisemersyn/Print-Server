@@ -6,6 +6,20 @@
     <title>Printer Selection</title>
     <link rel="stylesheet" href="static/style.css">
 </head>
-<button type="button" class="blockleft">Black & White</button>
-<button type="button" class="blockright">Color</button>
+
+<body>
+    <div>
+        <h2 class="printinheader">I want to print in...</h2>
+        <button type="button" class="blockleft">Black & White</button>
+        <button type="button" class="blockright">Color</button>
+    </div>
+    <div>
+        <label class="acknowledgementcb"><input type="checkbox" id="acknowledgementcb" name="acknowledgementcb"
+                value="acknowledgement">I acknowledge that the printers are located in the CIF lab on Anderson B, and
+            that I must pick up all prints here.</label>
+    </div>
+    <div>
+        <button type="button" class="buttoncenter">Continue</button>
+    </div>
+</body>
 {% endblock %}
