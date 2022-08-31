@@ -43,13 +43,20 @@ body {
   width: 20%;
   height: 20%;
   border: none;
-  background-color: #04AA6D;
   padding: 28px 28px;
   font-size: 28px;
   cursor: pointer;
   position:absolute;
   top:30%;
   left:20%;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid black;
+}
+
+.blockleft:hover{
+  background-color: #4CAF50;
+  color: white;
 }
 
 .blockright {
@@ -57,13 +64,20 @@ body {
   width: 20%;
   height: 20%;
   border: none;
-  background-color: #04AA6D;
   padding: 28px 28px;
   font-size: 28px;
   cursor: pointer;
   position:absolute;
   top:30%;
   right:20%;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  border: 2px solid black;
+}
+
+.blockright:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .buttoncenter {
