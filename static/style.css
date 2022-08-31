@@ -54,9 +54,14 @@ body {
   border: 2px solid black;
 }
 
-.blockleft:hover{
+.blockleft:hover {
   background-color: #4CAF50;
   color: white;
+}
+
+.blockleft:focus {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .blockright {
@@ -76,6 +81,11 @@ body {
 }
 
 .blockright:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.blockright:focus {
   background-color: #4CAF50;
   color: white;
 }
