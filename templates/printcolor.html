@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+    <title>Color Printer</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <h2 class="printinheader">Color Printer</h2>
+    <div>
+        <form class="formlayout">
+            </br>
+            <label for="fileupload">Select a File:</label>
+            <input type="file" id="fileupload" name="fileupload">
+            </br>
+
+            <label for="numcopies">Number of Copies (limit 5):</label>
+            <input type="text" id="numcopies" name="numcopies">
+            </br>
+
+            <label for="landscape">Landscape</label>
+            <input type="checkbox" id="landscape" name="landscape">
+            </br>
+
+            <label for="allpages">Print All Pages</label>
+            <input type="checkbox" id="allpages" name="allpages">
+
+            <label for="pagerangebool">Select Page Range</label>
+            <input type="checkbox" id="pagerangebool" name="pagerangebool">
+            </br>
+            </br>
+
+            <input type="submit" id="Print" name="Print" class="printbutton">
+
+        </form>
+    </div>
+</body>
+{% endblock %}

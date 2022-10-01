@@ -81,7 +81,7 @@ def logout():
 
     return redirect(url_for('login'))
 
-@login_required
+#@login_required
 @app.route("/printerselection")
 def printselection():
     return render_template("printerselection.html")
@@ -98,7 +98,7 @@ def printbw():
         conn.close()
     return render_template("printbw.html")
 
-@login_required
+#@login_required
 @app.route("/printcolor")
 def printcolor():
     form = PrintRequestColor()
@@ -107,7 +107,7 @@ def printcolor():
         conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", (os.path.basename((form.file.data).name)), "Color", (datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
         conn.close()
     #here will be the print form that will send print information to the print server
-    return
+    return render_template("printcolor.html")
 
 
 
