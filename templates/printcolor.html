@@ -10,7 +10,7 @@
 <body>
     <h2 class="printinheader">Color Printer</h2>
     <div>
-        <form "{{ url_for('printcolor') }}" method="post" class="formlayout">
+        <form action="{{ url_for('printcolor') }}" method="post" class="formlayout">
             </br>
             <label for="file">Select a File:</label>
             <input type="file" id="file" name="file">

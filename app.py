@@ -90,12 +90,15 @@ def printselection():
 @app.route("/printbw")
 def printbw():
     form = PrintRequestBW()
+    if request.method == "POST":
+        if form.validate_on_submit:
+            return "bye"
+        return "hello"
     #here will be the print form that will send print information to the print server
-    if form.validate_on_submit():
-        conn = getdbconnection()
-        conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", ((os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
-        conn.commit()
-        conn.close()
+        #conn = getdbconnection()
+        #conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", ((os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
+        #conn.commit()
+        #conn.close()
     return render_template("printbw.html")
 
 #@login_required

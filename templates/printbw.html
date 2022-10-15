@@ -10,14 +10,14 @@
 <body>
     <h2 class="printinheader">Black & White Printer</h2>
     <div>
-        <form class="formlayout">
+        <form action="{{ url_for('printbw') }}" method="post" class="formlayout">
             </br>
-            <label for="fileupload">Select a File:</label>
-            <input type="file" id="fileupload" name="fileupload">
+            <label for="file">Select a File:</label>
+            <input type="file" id="file" name="file">
             </br>
 
-            <label for="numcopies">Number of Copies (limit 5):</label>
-            <input type="text" id="numcopies" name="numcopies">
+            <label for="copies">Number of Copies (limit 5):</label>
+            <input type="text" id="copies" name="copies">
             </br>
 
             <label for="dbsided">Double-Sided</label>
@@ -28,8 +28,8 @@
             <input type="checkbox" id="landscape" name="landscape">
             </br>
 
-            <label for="allpages">Print All Pages</label>
-            <input type="checkbox" id="allpages" name="allpages">
+            <label for="printall">Print All Pages</label>
+            <input type="checkbox" id="printall" name="printall">
 
             <label for="pagerangebool">Select Page Range</label>
             <input type="checkbox" id="pagerangebool" name="pagerangebool">
