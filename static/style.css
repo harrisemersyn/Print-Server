@@ -38,6 +38,12 @@ body {
   color: white;
 }
 
+/* Reducing size of CIF logo */
+.topnav img {
+  width: 60px;
+  height: 60px;
+}
+
 .blockleft {
   display: block;
   width: 20%;
