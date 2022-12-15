@@ -61,10 +61,17 @@ body {
   float: left;
 }
 
+.buttonimg {
+  height: 65%;
+  width: 60%;
+  padding-bottom: 0%;
+  align-items: center;
+}
+
 .blockleft {
   display: block;
   width: 20%;
-  height: 20%;
+  height: 40%;
   border: none;
   padding: 28px 28px;
   font-size: 28px;
@@ -90,7 +97,7 @@ body {
 .blockright {
   display: block;
   width: 20%;
-  height: 20%;
+  height: 40%;
   border: none;
   padding: 28px 28px;
   font-size: 28px;
