@@ -11,11 +11,6 @@ class LoginForm(FlaskForm):
     netid = StringField("NetID", validators=[DataRequired(), AlphaNumeric()])
     password = PasswordField("Password", validators=[DataRequired()])
 
-class PrinterSelectionForm(FlaskForm):
-    color = BooleanField(validators=[DataRequired()])
-    acknowledgement = BooleanField("I acknowledge that the printers are located in the CIF lab on Anderson B, and that I must pick up all prints here.", validators=[DataRequired()])
-    print = SubmitField("Continue")
-
 #File, number of copies (max 5), color?, double sided?, landscape?, print all pages?
 #Seperate forms for color and black and white, will pick color or black and white before going to main print form
 class PrintRequestBW(FlaskForm):

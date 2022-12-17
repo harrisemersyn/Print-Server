@@ -133,11 +133,13 @@ body {
   right: 47%;
 }
 
-.acknowledgementcb {
+.acknowledgement {
+  text-align: center;
   position: absolute;
   bottom: 22%;
-  left: 30%;
+  left: 27%;
   top: 75%;
+  font-size: 1.2em;
 }
 
 .printinheader {

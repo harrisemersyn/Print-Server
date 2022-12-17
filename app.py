@@ -10,6 +10,7 @@ import sqlite3
 import auth
 import os
 
+
 # Get the config so configuration errors can be caught immediately on server start
 import config
 config.get_config()
