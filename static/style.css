@@ -61,27 +61,34 @@ body {
   float: left;
 }
 
+.printheaderdiv {
+  margin-top: 4%;
+}
+
+.printselectbuttons {
+  margin-top: 5%;
+}
+
 .buttonimg {
   height: 65%;
   width: 60%;
   padding-bottom: 0%;
   align-items: center;
+  justify-content: center;
 }
 
 .blockleft {
-  display: block;
-  width: 20%;
-  height: 40%;
   border: none;
   padding: 28px 28px;
   font-size: 28px;
   cursor: pointer;
-  position:absolute;
-  top:26%;
-  left:20%;
   border-radius: 8px;
   transition-duration: 0.4s;
   border: 2px solid black;
+  width: 15%;
+  height: 15%;
+  block-size: 5%;
+  margin-right: 7%;
 }
 
 .blockleft:hover {
@@ -95,19 +102,17 @@ body {
 }
 
 .blockright {
-  display: block;
-  width: 20%;
-  height: 40%;
   border: none;
   padding: 28px 28px;
   font-size: 28px;
   cursor: pointer;
-  position:absolute;
-  top:26%;
-  right:20%;
   border-radius: 8px;
   transition-duration: 0.4s;
   border: 2px solid black;
+  width: 15%;
+  height: 15%;
+  block-size: 5%;
+  margin-left: 7%;
 }
 
 .blockright:hover {
@@ -135,17 +140,8 @@ body {
 
 .acknowledgement {
   text-align: center;
-  position: absolute;
-  bottom: 22%;
-  left: 27%;
-  top: 75%;
+  margin-top: 5.5%;
   font-size: 1.2em;
-}
-
-.printinheader {
-  position: absolute;
-  top: 13%;
-  left: 44%;
 }
 
 .formlayout {
