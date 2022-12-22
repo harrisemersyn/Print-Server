@@ -11,6 +11,7 @@
     <h2 class="printinheader">Black & White Printer</h2>
     <div>
         <form action="{{ url_for('printbw') }}" method="post" class="formlayout">
+            {{ form.csrf_token }}
             </br>
             <label for="file">Select a File:</label>
             <input type="file" id="file" name="file">
@@ -29,10 +30,15 @@
             </br>
 
             <label for="printall">Print All Pages</label>
-            <input type="checkbox" id="printall" name="printall">
+            <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)>
 
-            <label for="pagerangebool">Select Page Range</label>
-            <input type="checkbox" id="pagerangebool" name="pagerangebool">
+            </br>
+            </br>
+            <div id="pagerange" style="display: none">
+                <label for="startpage">Page Range:</label>
+                <input type="text" id="startpage" name="startpage">
+                <input type="text" id="endpage" name="endpage">
+            </div>
             </br>
 
             <input type="checkbox" id="acknowledgement" name="acknowledgement">
@@ -45,5 +51,11 @@
 
         </form>
     </div>
+    <script type="text/javascript">
+        function ShowHideDiv(printall) {
+            var pagerange = document.getElementById("pagerange");
+            pagerange.style.display = printall.checked ? "block" : "none";
+        }
+    </script>
 </body>
 {% endblock %}

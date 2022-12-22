@@ -11,6 +11,7 @@
     <h2 class="printinheader">Color Printer</h2>
     <div>
         <form action="{{ url_for('printcolor') }}" method="post" class="formlayout">
+            {{ form.csrf_token }}
             </br>
             <label for="file">Select a File:</label>
             <input type="file" id="file" name="file">
@@ -26,9 +27,7 @@
 
             <label for="printall">Print All Pages</label>
             <input type="checkbox" id="printall" name="printall">
-
-            <label for="pagerangebool">Select Page Range</label>
-            <input type="checkbox" id="pagerangebool" name="pagerangebool">
+\
             </br>
             </br>
 

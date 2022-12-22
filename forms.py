@@ -16,16 +16,20 @@ class LoginForm(FlaskForm):
 class PrintRequestBW(FlaskForm):
     file = FileField("File", validators=[FileRequired(), FileAllowed(['doc','docx','gif','jpeg','jpeg','jpg','odf','odg','ods','odt','pdf','png','ppt','pptx','ps','rtf','svg','txt','xls','xlsx'], "Wrong Format")])
     copies = IntegerField("Number of Copies", validators=[DataRequired(), NumberRange(min=1,max=5)])
-    dbsided = BooleanField("Double Sided")
-    landscape = BooleanField("Landscape")
-    printall = BooleanField("Print All Pages")
+    dbsided = BooleanField("Double Sided", validators=[DataRequired()])
+    landscape = BooleanField("Landscape", validators=[DataRequired()])
+    printall = BooleanField("Print All Pages", validators=[DataRequired()])
+    startpage = IntegerField("First Page", validators=[DataRequired(), NumberRange(min=1)])
+    endpage = IntegerField("Last Page", validators=[DataRequired(), NumberRange(min=1)])
     print = SubmitField("Print")
 
 class PrintRequestColor(FlaskForm):
     file = FileField("File", validators=[FileRequired(), FileAllowed(['doc','docx','gif','jpeg','jpeg','jpg','odf','odg','ods','odt','pdf','png','ppt','pptx','ps','rtf','svg','txt','xls','xlsx'], "Wrong Format")])
     copies = IntegerField("Number of Copies", validators=[DataRequired(), NumberRange(min=1,max=5)])
-    landscape = BooleanField("Landscape")
-    printall = BooleanField("Print All Pages")
+    landscape = BooleanField("Landscape", validators=[DataRequired()])
+    printall = BooleanField("Print All Pages", validators=[DataRequired()])
+    startpage = IntegerField("First Page", validators=[DataRequired(), NumberRange(min=1)])
+    endpage = IntegerField("Last Page", validators=[DataRequired(), NumberRange(min=1)])
     print = SubmitField("Print")
 
 

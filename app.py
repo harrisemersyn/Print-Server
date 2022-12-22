@@ -95,12 +95,7 @@ def printbw():
         if form.validate_on_submit:
             return "bye"
         return "hello"
-    #here will be the print form that will send print information to the print server
-        #conn = getdbconnection()
-        #conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", ((os.path.basename((form.file.data).name)), "Black and White", datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
-        #conn.commit()
-        #conn.close()
-    return render_template("printbw.html")
+    return render_template("printbw.html", form = form)
 
 #@login_required
 @app.route("/printcolor", methods=['GET', 'POST'])
@@ -115,7 +110,7 @@ def printcolor():
         #conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", (os.path.basename((form.file.data).name)), "Color", (datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
         #conn.close()
     #here will be the print form that will send print information to the print server
-    return render_template("printcolor.html")
+    return render_template("printcolor.html", form = form)
 
 
 
