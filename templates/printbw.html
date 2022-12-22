@@ -30,9 +30,8 @@
             <br/>
 
             <label for="printall">Print All Pages</label>
-            <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)>
+            <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)">
 
-            <br/>
             <br/>
             <div id="pagerange" style="display: none">
                 <label for="startpage">Page Range:</label>
@@ -52,9 +51,9 @@
         </form>
     </div>
     <script type="text/javascript">
-        function ShowHideDiv(printall) => {
+        function ShowHideDiv(printall) {
             var pagerange = document.getElementById("pagerange");
-            pagerange.style.display = printall.checked ? "block" : "none";
+            pagerange.style.display = printall.checked ? "none" : "block";
         }
     </script>
 </body>
