@@ -12,47 +12,47 @@
     <div>
         <form action="{{ url_for('printbw') }}" method="post" class="formlayout">
             {{ form.csrf_token }}
-            </br>
+            <br/>
             <label for="file">Select a File:</label>
             <input type="file" id="file" name="file">
-            </br>
+            <br/>
 
             <label for="copies">Number of Copies (limit 5):</label>
             <input type="text" id="copies" name="copies">
-            </br>
+            <br/>
 
             <label for="dbsided">Double-Sided</label>
             <input type="checkbox" id="dbsided" name="dbsided">
-            </br>
+            <br/>
 
             <label for="landscape">Landscape</label>
             <input type="checkbox" id="landscape" name="landscape">
-            </br>
+            <br/>
 
             <label for="printall">Print All Pages</label>
             <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)>
 
-            </br>
-            </br>
+            <br/>
+            <br/>
             <div id="pagerange" style="display: none">
                 <label for="startpage">Page Range:</label>
                 <input type="text" id="startpage" name="startpage">
                 <input type="text" id="endpage" name="endpage">
             </div>
-            </br>
+            <br/>
 
             <input type="checkbox" id="acknowledgement" name="acknowledgement">
             <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse may
                 result in a permanent suspension of lab privileges.</label>
-            </br>
-            </br>
+            <br/>
+            <br/>
 
             <input type="submit" id="Print" name="Print" class="printbutton">
 
         </form>
     </div>
     <script type="text/javascript">
-        function ShowHideDiv(printall) {
+        function ShowHideDiv(printall) => {
             var pagerange = document.getElementById("pagerange");
             pagerange.style.display = printall.checked ? "block" : "none";
         }
