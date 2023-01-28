@@ -26,14 +26,31 @@
             </br>
 
             <label for="printall">Print All Pages</label>
-            <input type="checkbox" id="printall" name="printall">
-\
+            <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)">
             </br>
             </br>
+            <div id="pagerange" style="display: none">
+                <label for="startpage">Page Range:</label>
+                <input type="text" id="startpage" name="startpage">
+                <input type="text" id="endpage" name="endpage">
+            </div>
+            <br/>
+
+            <input type="checkbox" id="acknowledgement" name="acknowledgement">
+            <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse may
+                result in a permanent suspension of lab privileges.</label>
+            <br/>
+            <br/>
 
             <input type="submit" id="print" name="print" class="printbutton">
 
         </form>
     </div>
+    <script type="text/javascript">
+        function ShowHideDiv(printall) {
+            var pagerange = document.getElementById("pagerange");
+            pagerange.style.display = printall.checked ? "none" : "block";
+        }
+    </script>
 </body>
 {% endblock %}
