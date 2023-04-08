@@ -12,45 +12,55 @@
     <div>
         <form action="{{ url_for('printcolor') }}" method="post" class="formlayout">
             {{ form.csrf_token }}
-            </br>
+            <br/>
             <label for="file">Select a File:</label>
-            <input type="file" id="file" name="file">
-            </br>
-
-            <label for="copies">Number of Copies (limit 5):</label>
-            <input type="text" id="copies" name="copies">
-            </br>
-
-            <label for="landscape">Landscape</label>
-            <input type="checkbox" id="landscape" name="landscape">
-            </br>
-
-            <label for="printall">Print All Pages</label>
-            <input type="checkbox" id="printall" name="printall" checked="True" onclick="ShowHideDiv(this)">
-            </br>
-            </br>
-            <div id="pagerange" style="display: none">
-                <label for="startpage">Page Range:</label>
-                <input type="text" id="startpage" name="startpage">
-                <input type="text" id="endpage" name="endpage">
-            </div>
+            {{ form.file }}
             <br/>
 
-            <input type="checkbox" id="acknowledgement" name="acknowledgement">
+            <label for="copies">Number of Copies (limit 5):</label>
+            {{ form.copies }}
+            <br/>
+
+            <label for="landscape">Landscape</label>
+            {{ form.landscape }}
+            <br/>
+
+            <div>
+                <label for="printall">Print All Pages</label>
+                {{ form.printall(id="printall", checked=True) }}
+              </div>
+
+            <br/>
+            <div id="pagerange">
+                <label for="startpage">Page Range:</label>
+                {{ form.startpage(id="startpage") }}
+                {{ form.endpage(id="endpage") }}
+              </div>
+            <br/>
+
+            {{form.acknowledgement}}
             <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse may
                 result in a permanent suspension of lab privileges.</label>
             <br/>
             <br/>
 
-            <input type="submit" id="print" name="print" class="printbutton">
+            <input type="submit" id="Print" name="Print" class="printbutton">
+</form>
+</div>
+<script type="text/javascript">
+    document.getElementById('pagerange').style.display = 'none';
 
-        </form>
-    </div>
-    <script type="text/javascript">
-        function ShowHideDiv(printall) {
-            var pagerange = document.getElementById("pagerange");
-            pagerange.style.display = printall.checked ? "none" : "block";
+    document.getElementById('printall').addEventListener('click', function () {
+
+        var printallCheckbox = document.getElementById('printall');
+        var pagerangeFields = document.getElementById('pagerange');
+
+        if (printallCheckbox.checked) {
+            pagerangeFields.style.display = 'none';
+        } else {
+            pagerangeFields.style.display = 'block';
         }
-    </script>
+    });
+</script>
 </body>
 {% endblock %}

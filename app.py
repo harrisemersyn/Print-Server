@@ -88,29 +88,38 @@ def printselection():
     return render_template("printerselection.html")
 
 #@login_required
-@app.route("/printbw")
+@app.route("/printbw", methods=['GET', 'POST'])
 def printbw():
     form = PrintRequestBW()
-    if request.method == "POST":
+    if request.method == "POST" and form.validate():
         if form.validate_on_submit:
-            return "bye"
-        return "hello"
+            print(form.printall.data)
+            print(form.startpage.data)
+            print(form.endpage.data)
+            return redirect(url_for('printsent'))
+        else: 
+            return "Form invalid"
     return render_template("printbw.html", form = form)
 
 #@login_required
 @app.route("/printcolor", methods=['GET', 'POST'])
 def printcolor():
     form = PrintRequestColor()
-    if request.method == "POST":
+    if request.method == "POST" and form.validate():
         if form.validate_on_submit:
-            return "bye"
-        return "hello"
+            return redirect(url_for('printsent'))
+        else: 
+            return "Form invalid"
         #uncomment this for form.validate_on_submit once database is initialized
         #conn = getdbconnection()
         #conn.execute("INSERT INTO PrintLogs (filename, printer, datetime, copies) VALUES (?, ?, ?, ?);", (os.path.basename((form.file.data).name)), "Color", (datetime.now().strftime("%m/%d/%Y %H:%M:%S"), form.copies.data))
         #conn.close()
     #here will be the print form that will send print information to the print server
     return render_template("printcolor.html", form = form)
+
+@app.route("/printsent")
+def printsent():
+    return "Print Job Recieved"
 
 
 
