@@ -8,59 +8,59 @@
 </head>
 
 <body>
-    <h2 class="printinheader">Color Printer</h2>
-    <div>
-        <form action="{{ url_for('printcolor') }}" method="post" class="formlayout">
-            {{ form.csrf_token }}
-            <br/>
-            <label for="file">Select a File:</label>
-            {{ form.file }}
-            <br/>
+    <div class="bodyoffset">
+        <h2 class="printinheader">Color Printer</h2>
+            <form action="{{ url_for('printcolor') }}" method="post" class="formlayout">
+                {{ form.csrf_token }}
+                <label for="file">Select a File:</label>
+                {{ form.file }}
+                <br />
 
-            <label for="copies">Number of Copies (limit 5):</label>
-            {{ form.copies }}
-            <br/>
+                <label for="copies">Number of Copies (limit 5):</label>
+                {{ form.copies }}
+                <br />
 
-            <label for="landscape">Landscape</label>
-            {{ form.landscape }}
-            <br/>
+                <label for="landscape">Landscape</label>
+                {{ form.landscape }}
+                <br />
 
-            <div>
-                <label for="printall">Print All Pages</label>
-                {{ form.printall(id="printall", checked=True) }}
-              </div>
+                <div>
+                    <label for="printall">Print All Pages</label>
+                    {{ form.printall(id="printall", checked=True) }}
+                </div>
 
-            <br/>
-            <div id="pagerange">
-                <label for="startpage">Page Range:</label>
-                {{ form.startpage(id="startpage") }}
-                {{ form.endpage(id="endpage") }}
-              </div>
-            <br/>
+                <br />
+                <div id="pagerange">
+                    <label for="startpage">Page Range:</label>
+                    {{ form.startpage(id="startpage") }}
+                    {{ form.endpage(id="endpage") }}
+                </div>
+                <br />
 
-            {{form.acknowledgement}}
-            <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse may
-                result in a permanent suspension of lab privileges.</label>
-            <br/>
-            <br/>
+                {{form.acknowledgement}}
+                <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse
+                    may
+                    result in a permanent suspension of lab privileges.</label>
+                <br />
+                <br />
 
-            <input type="submit" id="Print" name="Print" class="printbutton">
-</form>
-</div>
-<script type="text/javascript">
-    document.getElementById('pagerange').style.display = 'none';
+                <input type="submit" id="Print" name="Print" class="printbutton">
+            </form>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('pagerange').style.display = 'none';
 
-    document.getElementById('printall').addEventListener('click', function () {
+        document.getElementById('printall').addEventListener('click', function () {
 
-        var printallCheckbox = document.getElementById('printall');
-        var pagerangeFields = document.getElementById('pagerange');
+            var printallCheckbox = document.getElementById('printall');
+            var pagerangeFields = document.getElementById('pagerange');
 
-        if (printallCheckbox.checked) {
-            pagerangeFields.style.display = 'none';
-        } else {
-            pagerangeFields.style.display = 'block';
-        }
-    });
-</script>
+            if (printallCheckbox.checked) {
+                pagerangeFields.style.display = 'none';
+            } else {
+                pagerangeFields.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 {% endblock %}

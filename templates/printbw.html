@@ -8,63 +8,62 @@
 </head>
 
 <body>
-    <h2 class="printinheader">Black & White Printer</h2>
-    <div>
+    <div class="bodyoffset">
+        <h2 class="printinheader">Black & White Printer</h2>
         <form action="{{ url_for('printbw') }}" method="post" class="formlayout">
             {{ form.csrf_token }}
-            <br/>
             <label for="file">Select a File:</label>
             {{ form.file }}
-            <br/>
+            <br />
 
             <label for="copies">Number of Copies (limit 5):</label>
             {{ form.copies }}
-            <br/>
+            <br />
 
             <label for="dbsided">Double-Sided</label>
             {{ form.dbsided }}
-            <br/>
+            <br />
 
             <label for="landscape">Landscape</label>
             {{ form.landscape }}
-            <br/>
+            <br />
 
             <div>
                 <label for="printall">Print All Pages</label>
                 {{ form.printall(id="printall", checked=True) }}
-              </div>
+            </div>
 
-            <br/>
+            <br />
             <div id="pagerange">
                 <label for="startpage">Page Range:</label>
                 {{ form.startpage(id="startpage") }}
                 {{ form.endpage(id="endpage") }}
-              </div>
-            <br/>
+            </div>
+            <br />
 
             {{form.acknowledgement}}
             <label for="acknowledgement">I comply with the CIF Lab Terms of Use, and acknowledge that printer misuse may
                 result in a permanent suspension of lab privileges.</label>
-            <br/>
-            <br/>
+            <br />
+            <br />
 
             <input type="submit" id="Print" name="Print" class="printbutton">
-</form>
-</div>
-<script type="text/javascript">
-    document.getElementById('pagerange').style.display = 'none';
+        </form>
+    </div>
+    <script type="text/javascript">
+        document.getElementById('pagerange').style.display = 'none';
 
-    document.getElementById('printall').addEventListener('click', function () {
+        document.getElementById('printall').addEventListener('click', function () {
 
-        var printallCheckbox = document.getElementById('printall');
-        var pagerangeFields = document.getElementById('pagerange');
+            var printallCheckbox = document.getElementById('printall');
+            var pagerangeFields = document.getElementById('pagerange');
 
-        if (printallCheckbox.checked) {
-            pagerangeFields.style.display = 'none';
-        } else {
-            pagerangeFields.style.display = 'block';
-        }
-    });
-</script>
+            if (printallCheckbox.checked) {
+                pagerangeFields.style.display = 'none';
+            } else {
+                pagerangeFields.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 {% endblock %}
