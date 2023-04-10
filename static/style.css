@@ -65,43 +65,32 @@ body {
   float: left;
 }
 
-.twocolumncontainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
-.column {
-  flex-basis: 48%;
-  padding: 1%;
-  margin-bottom: 1%;
-  margin-top: 4%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepageheadercontainer {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  width: 60%;
-  margin: 0;
+.grid-item {
+  justify-items: center;
 }
 
 .homepageheader {
   font-size: 5.05em;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
+  grid-column: 2 / 3;
+  margin-left: 21.3%;
+  margin-right: 21.3%;
+  margin-top: 10%;
 }
 
 .homepagetext {
   font-size: 2em;
   font-weight: 600;
   text-align: left;
-  margin-top: 0;
-  margin-right: 0;
-  align-self: flex-start;
+  margin-left: 21.3%;
+  margin-right: 21.3%;
 }
 
 .printheaderdiv {

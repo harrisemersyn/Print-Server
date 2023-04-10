@@ -8,28 +8,22 @@
 </head>
 
 <body>
-    <div class="bodyoffset">
-        <div class="twocolumncontainer">
-            <div class="column">
-                <div class="homepageheadercontainer">
-                    <h1 class="homepageheader">CIF Print Server</h1>
-
-                    <p class="homepagetext">Welcome to the CIF Print Server! To print, log in to your CIF Lab Account.
-                        Don't have an account?
-                        Register at
-                        x. Copies can be picked up at the CIF Lab in the basement of Anderson.</p>
-                </div>
-            </div>
-            <div class="column">
-                <p class="homepagetext">Proin venenatis ante sed nisi suscipit, vel rutrum enim auctor. Morbi faucibus
-                    magna at purus laoreet
-                    consequat. </p>
-            </div>
-
-
+    <div class="grid-container">
+        <div class="grid-item">
+           <h1 class="homepageheader">CIF Print Server</h1>
         </div>
-
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item"><p class="homepagetext">Welcome to the CIF Print Server!
+            The Computer Interest Floor provides free printing to University of Rochester students with a CIF lab account. Click here to begin.</p></div>
+        <div class="grid-item">
+            <ul>
+                <li>Login, then select the printer under the print tab and upload your file.</li>
+                <li>After you submit your print job, come to the CIF lab in the basement of Anderson 3 to pick up your prints!</li>
+                <li>No lab account? No problem! Register here.</li>
+            </ul>
+        </div>
     </div>
+
 </body>
 
 {% endblock %}

@@ -12,6 +12,7 @@ Homepage
 - [x] Fix side text alignment
 - [ ] Link intro paragraph to CIF registration
 - [ ] Add more content and details about CIF printing
+- [ ] Format content within the grid layout
 
 Print Pages
 - [x] Fix side text alignment
